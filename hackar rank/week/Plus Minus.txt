@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void plusMinuscode(int a[], int b) {
+    int positive = 0, negative = 0, zero = 0;
+
+    for (int m = 0; m < b; m++) {
+        if (a[m] > 0)
+            positive++;
+        else if (a[m] < 0)
+            negative++;
+        else
+            zero++;
+    }
+
+    printf("%.6f\n", (float)positive / b);
+    printf("%.6f\n", (float)negative / b);
+    printf("%.6f\n", (float)zero / b);
+}
+
+int main() {
+    int b;
+    scanf("%d", &b);
+    int a[b];
+
+    for (int m = 0; m < b; m++)
+        scanf("%d", &a[m]);
+
+    plusMinuscode(a, b);
+
+    return 0;
+}
