@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int z, q;
+    scanf("%d", &z);
+    char strings[z][100];
+    for (int i = 0; i < z; i++)
+        scanf("%s", strings[i]);
+
+    scanf("%d", &q);
+    char query[100];
+    for (int i = 0; i < q; i++) {
+        int c = 0;
+        scanf("%s", query);
+        for (int j = 0; j < z; j++) {
+            if (strcmp(query, strings[j]) == 0)
+                c++;
+        }
+        printf("%d\n", c);
+    }
+    return 0;
+}

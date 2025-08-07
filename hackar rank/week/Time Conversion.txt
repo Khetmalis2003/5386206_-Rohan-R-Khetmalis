@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void timeConversionsoln(char* s) {
+    int hour;
+    char format[3];
+    sscanf(s, "%2d:%*2d:%*2d%2s", &hour, format);
+    if (strcmp(format, "AM") == 0) {
+        if (hour == 12)
+            hour = 0;
+    } else {
+        if (hour != 12)
+            hour += 12;
+    }
+
+    
+    printf("%02d", hour);
+    for (int q = 2; q < 8; q++) {
+        putchar(s[q]);
+    }
+    printf("\n");
+}
+
+int main() {
+    char s[11];
+    scanf("%s", s);
+    timeConversionsoln(s);
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void miniMaxSumsoln(int a[5]) {
+    long long total = 0;
+    int min = a[0], max = a[0];
+
+    for (int z = 0; z < 5; z++) {
+        total += a[z];
+        if (a[z] < min)
+            min = a[z];
+        if (a[z] > max)
+            max = a[z];
+    }
+
+    long long minSum = total - max;
+    long long maxSum = total - min;
+
+    printf("%lld %lld\n", minSum, maxSum);
+}
+
+int main() {
+    int arr[5];
+    for (int i = 0; i < 5; i++)
+        scanf("%d", &arr[i]);
+
+    miniMaxSumsoln(arr);
+    return 0;
+}
