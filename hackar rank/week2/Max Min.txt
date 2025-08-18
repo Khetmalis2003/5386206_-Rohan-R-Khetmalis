@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int cmp(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
+
+int maxMin(int k, int n, int *arr) {
+    qsort(arr, n, sizeof(int), cmp);
+    int min_diff = arr[k-1] - arr[0];
+    for (int i = 1; i <= n - k; i++) {
+        int diff = arr[i + k - 1] - arr[i];
+        if (diff < min_diff) min_diff = diff;
+    }
+    return min_diff;
+}
+
+int main() {
+    int n, k;
+    scanf("%d", &n);
+    scanf("%d", &k);
+
+    int *arr = malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int result = maxMin(k, n, arr);
+    printf("%d\n", result);
+
+    free(arr);
+    return 0;
+}
